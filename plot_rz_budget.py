@@ -59,6 +59,8 @@ if __name__ == '__main__':
             rz_annual['Native&Riparian Veg. Net Loss from Land Reduction (-)'] = np.where(rz_annual['Native&Riparian Veg. Net Gain from Land Expansion (+)'].to_numpy() < 0, -1*rz_annual['Native&Riparian Veg. Net Gain from Land Expansion (+)'].to_numpy(), 0)
             rz_annual['Native&Riparian Veg. Net Gain from Land Expansion (+)'] = np.where(rz_annual['Native&Riparian Veg. Net Gain from Land Expansion (+)'].to_numpy() >= 0, rz_annual['Native&Riparian Veg. Net Gain from Land Expansion (+)'].to_numpy(), 0)
             
+            print("Plotting Agricultural Runoff and Infiltration Root Zone Budget for {}".format(l))
+
             width = 0.35
 
             # plot agricultural land surface runoff and infiltration of precipitation and applied water
@@ -132,6 +134,8 @@ if __name__ == '__main__':
             plt.savefig('{}_Ag_RZ.png'.format(l))
             plt.close()
 
+            print("Plotting Urban Runoff and Infiltration Root Zone Budget for {}".format(l))
+
             # plot urban land surface runoff and infiltration of precipitation and applied water
             fig, ax = plt.subplots(figsize=(20,6))
             ax.bar(
@@ -203,6 +207,8 @@ if __name__ == '__main__':
             plt.savefig('{}_Urban_RZ.png'.format(l))
             plt.close()
 
+            print("Plotting Native and Riparian Runoff and Infiltration Root Zone Budget for {}".format(l))
+
             # plot native and riparian land surface runoff and infiltration of precipitation
             fig, ax = plt.subplots(figsize=(20,6))
             ax.bar(
@@ -253,8 +259,10 @@ if __name__ == '__main__':
             ax2.set_ylabel('Area (Acres)')
             ax.set_xlabel('Water Year')
             ax.set_title('Root Zone Budget - Native and Riparian\nRunoff and Infiltration for Subregion {}'.format(i))
-            plt.savefig('{}_NR_RZ.png'.format(l))
+            plt.savefig('{}_NR_RZ_RunoffandInfiltration.png'.format(l))
             plt.close()
+
+            print("Plotting Agricultural Root Zone Budget for {}".format(l))
 
             # plot root zone budget for ag
             fig, ax = plt.subplots(figsize=(20,6))
@@ -345,6 +353,8 @@ if __name__ == '__main__':
             plt.savefig('{}_AG_RZ_Budget.png'.format(l))
             plt.close()
             
+            print("Plotting Urban Root Zone Budget for {}".format(l))
+            
             # plot root zone budget for urban
             fig, ax = plt.subplots(figsize=(20,6))
             ax.bar(
@@ -433,6 +443,8 @@ if __name__ == '__main__':
             ax.set_title("Urban Root Zone Budget\nfor Subregion {}".format(i))
             plt.savefig('{}_UR_RZ_Budget.png'.format(l))
             plt.close()
+            
+            print("Plotting Native and Riparian Root Zone Budget for {}".format(l))
             
             # plot root zone budget for native and riparian vegetation
             fig, ax = plt.subplots(figsize=(20,6))
